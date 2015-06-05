@@ -1,0 +1,64 @@
+body {
+    padding-top: 50px;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* ----------------- styling for landing page begins -------------------- */
+
+.landing-hero {
+  padding-top: 150px;
+}
+
+.landing-hero h1 {
+  font-size: 70px;
+}
+
+.landing-hero .lead {
+  font-size: 30px;
+}
+
+.landing-section-blue {
+  height: 500px;
+  background-color: #CEEEF3;
+}
+
+.landing-section-green {
+  height: 500px;
+  background-color: #a9ee86;
+}
+
+.landing-1 {
+  padding-top: 150px;
+}
+
+.landing-1 .lead {
+  font-size: 30px;
+}
+
+.landing-1 span {
+  font-style: italic;
+}
+
+.landing-section-pink {
+  height: 500px;
+  background-color: #f4c3e1;
+}
+
+.landing-2 {
+  padding-top: 150px;
+}
+
+.landing-2 h1 {
+  font-size: 50px;
+}
+
+.btn-sign-up {
+  height: 40px;
+  border-radius: 15px;
+}
+
+.btn-sign-up a:hover {
+  text-decoration: none;
+}
+
+/* ----------------- styling for landing page ends -------------------- */
