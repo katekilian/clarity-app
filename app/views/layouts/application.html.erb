@@ -33,14 +33,24 @@
           <li>
             <a href="#">Services</a>
           </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to "#{current_user.email}" %></li>
+            <li><%= link_to "Sign Out" %></li>
+          <% else %>
+            <li><%= link_to "Sign In" %></li>
+            <li><%= link_to "Sign Up" %></li>
+          <% end %>
         </ul>
       </div>
 
     </div>
   </nav>
+
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
 
   <%= yield %>
 
