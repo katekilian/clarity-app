@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605215041) do
+ActiveRecord::Schema.define(version: 20150615200048) do
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.text     "situation"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statements", force: :cascade do |t|
+    t.integer  "journal_entry_id"
+    t.string   "observation"
+    t.integer  "feeling_id"
+    t.integer  "need_id"
+    t.string   "request"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
