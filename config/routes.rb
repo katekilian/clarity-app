@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get "sign-in", to: "authentication#new"
   post "sign-in", to: "authentication#create"
 
-  resources :journal_entries, only: [:index]
+  resources :journal_entries, only: [:index, :new]
 
 end
