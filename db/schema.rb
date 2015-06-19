@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617044708) do
+ActiveRecord::Schema.define(version: 20150619195520) do
 
   create_table "feelings", force: :cascade do |t|
     t.string "feeling_name"
@@ -28,14 +28,23 @@ ActiveRecord::Schema.define(version: 20150617044708) do
     t.string "need_name"
   end
 
+  create_table "satisfied_feelings", force: :cascade do |t|
+    t.string "feeling_name"
+  end
+
   create_table "statements", force: :cascade do |t|
     t.integer  "journal_entry_id"
     t.string   "observation"
-    t.integer  "feeling_id"
     t.integer  "need_id"
     t.string   "request"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "satisfied_feeling_id"
+    t.integer  "unsatisfied_feeling_id"
+  end
+
+  create_table "unsatisfied_feelings", force: :cascade do |t|
+    t.string "feeling_name"
   end
 
   create_table "users", force: :cascade do |t|
