@@ -56,6 +56,10 @@ body {
   padding-top: 70px;
   background-color: $primary-light;
   color: $primary-dark;
+  h1 {
+    font-family: Allura;
+    font-size: 60px;
+  }
 }
 
 nav {
