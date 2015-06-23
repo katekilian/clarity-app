@@ -52,16 +52,6 @@ $accent-2: #B53400;
 
 /* --------------- variables and mixins end, navbar begins --------------------------- */
 
-body {
-  padding-top: 70px;
-  background-color: $primary-light;
-  color: $primary-dark;
-  h1 {
-    font-family: Allura;
-    font-size: 60px;
-  }
-}
-
 nav {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -79,6 +69,24 @@ nav {
 
   .navbar-nav li a {
     color: $secondary-light;
+  }
+}
+
+
+
+/* ----------------- navbar ends, site-wide styling begins ---------------- */
+
+body {
+  padding-top: 70px;
+  background-color: $primary-light;
+  color: $primary-dark;
+
+  h1 {
+    font-family: Allura;
+    font-size: 60px;
+  }
+  .container > p {
+    font-size: 20px;
   }
 }
 
