@@ -1,8 +1,51 @@
-HELLO I'M THE JOURNAL ENTRIES INDEX
+<div class="container">
 
-<%= "Signed in as: #{current_user.email}" %>
-<%= link_to "Sign Out", sign_out_path %>
-<br>
-<br>
-<br>
-<%= link_to "New Journal Entry", new_journal_entry_path %>
+  <div class="page-header">
+    <div class="pull-right">
+      <%= link_to "New Journal Entry", new_journal_entry_path, class: "btn btn-submit" %>
+    </div>
+    <h1>Welcome!</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Recent Journal Entries</h1>
+
+      <% @journal_entries.each do |journal_entry| %>
+
+        <div class="well">
+          <div class="row">
+            <div class="col-md-8">
+              <h3><%= journal_entry.created_at.strftime("%A %m/%e/%Y") %></h4>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <%= journal_entry.situation %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to "See Entry and Statements", journal_entry_path(journal_entry), class: 'btn btn-secondary' %>
+            </div>
+          </div>
+        </div> <!-- end j_e well -->
+
+      <% end %>
+
+    </div> <!-- end col-md-8 -->
+
+  <div class="col-md-4">
+    <div class="well">
+      <h1>Tag Cloud</h1>
+      <p>
+        HIIII
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>

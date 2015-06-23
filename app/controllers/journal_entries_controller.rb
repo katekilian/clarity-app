@@ -2,8 +2,16 @@ class JournalEntriesController < ApplicationController
 
   before_action :ensure_current_user
 
+  def dashboard
+
+  end
+
   def index
     @journal_entries = JournalEntry.where(user_id: current_user.id)
+  end
+
+  def show
+    @journal_entry = JournalEntry.find(params[:id])
   end
 
   def new
@@ -21,6 +29,26 @@ class JournalEntriesController < ApplicationController
     else
       raise
     end
+  end
+
+  def edit
+    @journal_entry = JournalEntry.find(params[:id])
+  end
+
+  def update
+    @journal_entry = JournalEntry.find(params[:id])
+    if @journal_entry.update(journal_entry_params)
+      flash[:notice] = "Journal entry has been updated!"
+      redirect_to journal_entries_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    JournalEntry.destroy(params[:id])
+    flash[:notice] = "Journal entry has been successfully deleted."
+    redirect_to journal_entries_path
   end
 
   private

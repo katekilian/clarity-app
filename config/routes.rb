@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get "sign-out", to: "authentication#destroy"
   post "sign-in", to: "authentication#create"
 
-  resources :journal_entries, only: [:index, :new, :create]
+  resources :journal_entries
 
 end

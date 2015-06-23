@@ -1,0 +1,114 @@
+<div class="row">
+
+  <div class="col-md-offset-2 well col-md-8">
+
+    <%= form_for @journal_entry, class: "form-horizontal" do |f| %>
+
+      <div class="form-group">
+        <div class="row">
+          <%= f.label :situation, class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+             <%= f.text_area :situation, class: 'form-control'%>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-rule"></div>
+
+      <div class="row">
+        <p class="col-md-offset-2 col-md-5 lead">NVC Statements</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <button type="button" class="btn btn-secondary" id="nvc-statement-info">Read about the NVC process</button>
+          <div id='nvc-statement-education'>
+            <p>
+              When using the NVC process, the aim is to state your feelings and needs in a given situation without labeling yourself or others, and clarifying what is your responsibility and what is others' responsibilities.  Here are the four components below:
+              <ol>
+                <li><strong>What I observe that does or doesn't contribute to my well-being:</strong> </li>
+                <li><strong>How I feel in relation to what I observe:</strong> </li>
+                <li><strong>What I need or value that causes my feelings:</strong></li>
+                <li><strong>Make a life-serving request:</strong> The request should not be made with the intent of manipulating another person or disregarding their right to autonomy or independent decision-making. Ideally a request enriches your life, but you trust that you will be able to find another way to meet it if it is not met.</li>
+              </ol>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <p class="col-md-offset-2 col-md-6">
+          Has this situation led to satisfied feelings, or unsatisfied feelings? (Unsatisfied is preselected)
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-4">
+          <button type="button" id="form-satisfied" class="btn btn-satisfied">Satisfied</button>
+          <button type="button" id="form-unsatisfied" class="btn btn-unsatisfied">Unsatisfied</button>
+        </div>
+      </div>
+
+      <div class="horizontal-rule"></div>
+
+      <%= f.fields_for :statements do |statements_form| %>
+        <div class="form-group">
+          <div class="row">
+            <%= statements_form.label :observation, "When I notice", class: "col-md-2 control-label" %>
+            <div class="col-md-10">
+              <%= statements_form.text_field :observation, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row cs-satisfied" >
+            <%= statements_form.label :satisfied_feeling_id, "I feel", class: "col-md-2 control-label"%>
+            <div class="col-md-3">
+              <%= statements_form.collection_select(:satisfied_feeling_id, SatisfiedFeeling.all, :id, :feeling_name, {prompt: "Choose a feeling..."}, {class: "form-control"}) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row cs-unsatisfied">
+            <%= statements_form.label :unsatisfied_feeling_id, "I feel", class: "col-md-2 control-label" %>
+            <div class="col-md-3">
+              <%= statements_form.collection_select(:unsatisfied_feeling_id, UnsatisfiedFeeling.all, :id, :feeling_name, {prompt: "Choose a feeling..."}, {class: "form-control"}) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <%= statements_form.label :need_id, "because I need", class: "col-md-2 control-label" %>
+            <div class="col-md-3">
+            <%= statements_form.collection_select(:need_id, Need.all, :id, :need_name, {prompt: "Choose a need..."}, {class: "form-control"}) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group final-statement-input">
+          <div class="row">
+            <%= statements_form.label :request, "Would you be willing to...?", class: "col-md-2 control-label" %>
+            <div class="col-md-10">
+              <%= statements_form.text_area :request, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-4">
+          <button name="new-statement" class='btn btn-secondary' id="new-statement">Add a new statement</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-2">
+          <%= f.submit name_of_button, class: 'btn btn-submit' %>
+        </div>
+      </div>
+
+    <% end %>
+  </div> <!-- well -->
+
+</div> <!-- row -->

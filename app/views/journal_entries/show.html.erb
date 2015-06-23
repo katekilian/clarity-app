@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="page-header">
+    <div class="pull-right">
+      <%= link_to "Edit", edit_journal_entry_path(@journal_entry), class: "btn btn-submit" %>
+      <%= link_to "Delete", journal_entry_path(@journal_entry), method: "delete", class: "btn btn-submit" %>
+    </div>
+    <h1><%= @journal_entry.created_at.strftime("%A %m/%e/%Y") %></h1>
+
+  </div>
+
+  <%= @journal_entry.situation %>
+  <% @journal_entry.statements.each do |statement| %>
+    <% if statement.satisfied_feeling_id %>
+      <% feeling = SatisfiedFeeling.find(statement.satisfied_feeling_id).feeling_name %>
+    <% else %>
+      <% feeling = UnsatisfiedFeeling.find(statement.unsatisfied_feeling_id).feeling_name %>
+    <% end %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-4">Observation</th>
+          <th class="col-md-2">Feeling</th>
+          <th class="col-md-2">Need</th>
+          <th class="col-md-4">Request</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= "When I observe #{statement.observation}," %></td>
+          <% if statement.satisfied_feeling_id %>
+            <td><%= "I feel #{SatisfiedFeeling.find(statement.satisfied_feeling_id).feeling_name}" %></td>
+          <% else %>
+            <td><%= "I feel #{UnsatisfiedFeeling.find(statement.unsatisfied_feeling_id).feeling_name}" %></td>
+          <% end %>
+          <td><%= "because I need #{Need.find(statement.need_id).need_name}." %></td>
+          <td><%= "Would you (or I) be willing to #{statement.request}?" %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <% end %>
+
+</div> <!-- container -->

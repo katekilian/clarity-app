@@ -1,0 +1,9 @@
+<div class="container">
+
+  <div class="page-header">
+    <h1> <%= "Edit Journal Entry dated #{@journal_entry.created_at.strftime("%A %m/%e/%Y")}" %> </h1>
+  </div>
+
+  <%= render partial: "form", locals: { name_of_button: "Update Journal Entry" } %>
+
+</div>
