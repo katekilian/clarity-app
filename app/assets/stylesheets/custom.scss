@@ -202,10 +202,58 @@ nav {
 
 .text-lighten {
   color: $primary-light;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /* ----------------- styling for landing page ends -------------------- */
 
-.btn-submit {
-  @include button;
+
+/* ----------------- styling for journal_entries_new page begins -------------------- */
+
+.btn-satisfied {
+  margin-right: 0px;
+  margin-bottom: 20px;
+  background-color: $accent-1;
+  border-color: $accent-2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  color: $primary-dark;
+}
+
+.btn-unsatisfied {
+  margin-left: -4px;
+  margin-bottom: 20px;
+  background-color: $accent-1;
+  border-color: $accent-2;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  color: $primary-dark;
+}
+
+.btn-secondary {
+  // margin-right: 0px;
+  margin-bottom: 20px;
+  background-color: $accent-1;
+  border-color: $accent-2;
+  border-radius: 10px;
+  color: $primary-dark;
+}
+
+.active {
+  background-color: darken($accent-1, 10%);
+}
+
+.horizontal-rule {
+  background-color: $accent-2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 1px;
+
 }
