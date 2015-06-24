@@ -39,11 +39,29 @@
     </div> <!-- end col-md-8 -->
 
   <div class="col-md-4">
-    <div class="well">
-      <h1>Tag Cloud</h1>
-      <p>
-        HIIII
-      </p>
+    <div class="row">
+      <div class="well">
+        <h3>Needs</h3>
+        <% @user_tag_data[:needs].each do |need| %>
+          <%= link_to need, keyword_query_path(keyword: need) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="well">
+        <h3>Satisfied Feelings</h3>
+        <% @user_tag_data[:satisfied_feelings].each do |feeling| %>
+          <%= link_to feeling, keyword_query_path(keyword: feeling) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="well">
+        <h3>Unsatisfied Feelings</h3>
+        <% @user_tag_data[:unsatisfied_feelings].each do |feeling| %>
+          <%= link_to feeling, keyword_query_path(keyword: feeling) %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

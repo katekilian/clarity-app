@@ -2,12 +2,10 @@ class JournalEntriesController < ApplicationController
 
   before_action :ensure_current_user
 
-  def dashboard
-
-  end
-
   def index
     @journal_entries = JournalEntry.where(user_id: current_user.id)
+    @book_request = GoogleBooksApi.book_search('happiness')
+    @user_tag_data = TagCloudGenerator.new(current_user.id).fetch
   end
 
   def show
