@@ -4,32 +4,40 @@
     <h1>Suggested Books (first 10 results)</h1>
   </div>
 
-  <% @search_results[:items].each do |item| %>
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-        <div class="well">
-          <div class="row">
-            <div class="col-md-9">
-                <p>
-                  <strong>Title:</strong> <%= item[:volumeInfo][:title] %>
-                </p>
+  <% if !@search_results[:items] %>
+    <p>
+      Sorry, there are no results.
+    </p>
+  <% else %>
+    <% @search_results[:items].each do |item| %>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="well">
+            <div class="row">
+              <div class="col-md-9">
+                  <p>
+                    <strong>Title:</strong> <%= item[:volumeInfo][:title] %>
+                  </p>
 
-                <p>
-                  <strong>Authors:</strong>
-                  <% item[:volumeInfo][:authors].each do |author| %>
-                    <%= author %>
-                  <% end %>
-                </p>
+                  <p>
+                    <strong>Authors:</strong>
+                    <% item[:volumeInfo][:authors].each do |author| %>
+                      <%= author %>
+                    <% end %>
+                  </p>
+              </div>
+              <div class="col-md-3">
+                <img src=<%= item[:volumeInfo][:imageLinks][:smallThumbnail] %> alt="" />
+              </div>
             </div>
-            <div class="col-md-3">
-              <img src=<%= item[:volumeInfo][:imageLinks][:smallThumbnail] %> alt="" />
-            </div>
+
+
           </div>
-
-
         </div>
       </div>
-    </div>
+    <% end %>
+
   <% end %>
+
 
 </div>
