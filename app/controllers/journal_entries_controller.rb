@@ -15,7 +15,7 @@ class JournalEntriesController < ApplicationController
   def new
     @user = current_user
     @journal_entry = JournalEntry.new
-    1.times { @journal_entry.statements.build }
+    @journal_entry.statements.build
   end
 
   def create
@@ -61,4 +61,5 @@ class JournalEntriesController < ApplicationController
       redirect_to root_path
     end
   end
+
 end
