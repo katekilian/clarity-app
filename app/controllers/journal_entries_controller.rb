@@ -52,7 +52,7 @@ class JournalEntriesController < ApplicationController
   private
 
   def journal_entry_params
-    params.require(:journal_entry).permit(:situation, :user_id, statements_attributes: [:id, :journal_entry_id, :observation, :need_id, :request, :satisfied_feeling_id, :unsatisfied_feeling_id])
+    params.require(:journal_entry).permit(:situation, :user_id, statements_attributes: [:id, :journal_entry_id, :observation, :need_id, :request, :satisfied_feeling_id, :unsatisfied_feeling_id, :_destroy])
   end
 
   def ensure_current_user
